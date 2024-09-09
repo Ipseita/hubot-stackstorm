@@ -78,7 +78,7 @@ var START_MESSAGES = [
 ];
 
 var ERROR_MESSAGES = [
-  "I'm sorry, Dave. I'm afraid I can't do that. {~} %s"
+  "I'm sorry, I'm afraid I can't do that. {~} %s"
 ];
 
 var TWOFACTOR_MESSAGE = "This action requires two-factor auth! Waiting for your confirmation.";
