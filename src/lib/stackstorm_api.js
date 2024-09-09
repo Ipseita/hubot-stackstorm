@@ -72,18 +72,9 @@ env.ST2_COMMANDS_RELOAD_INTERVAL = parseInt(env.ST2_COMMANDS_RELOAD_INTERVAL || 
 env.ST2_MAX_MESSAGE_LENGTH = parseInt(env.ST2_MAX_MESSAGE_LENGTH || 500, 10);
 
 // Constants
-// Fun human-friendly commands. Use %s for payload output.
+// Undistracting submission messages. Use %s for payload output.
 var START_MESSAGES = [
-  "I'll take it from here! Your execution ID for reference is %s",
-  "Got it! Remember %s as your execution ID",
-  "I'm on it! Your execution ID is %s",
-  "Let me get right on that. Remember %s as your execution ID",
-  "Always something with you. :) I'll take care of that. Your ID is %s",
-  "I have it covered. Your execution ID is %s",
-  "Let me start up the machine! Your execution ID is %s",
-  "I'll throw that task in the oven and get cookin'! Your execution ID is %s",
-  "Want me to take that off your hand? You got it! Don't forget your execution ID: %s",
-  "River Tam will get it done with her psychic powers. Your execution ID is %s"
+  "Submitted. ID %s. Processing..."
 ];
 
 var ERROR_MESSAGES = [
@@ -321,7 +312,8 @@ StackStorm.prototype.sendAck = function (msg, res) {
   var self = this;
 
   var history_url = utils.getExecutionHistoryUrl(res.execution);
-  var history = history_url ? util.format(' (details available at %s)', history_url) : '';
+  var history = '';
+//  var history = history_url ? util.format(' (details available at %s)', history_url) : '';
 
   if (res.actionalias && res.actionalias.ack) {
     if (res.actionalias.ack.enabled === false) {
